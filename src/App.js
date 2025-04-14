@@ -1,20 +1,25 @@
 import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
+import Home from './Pages/Home';
+import About from './Pages/About';
+import Project from './Pages/Project';
+import Navbar from './Components/Navbar';
+import Breadcrumbs from './Components/Breadcrumbs';
+import Footer from './Components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header>
-      <h1>Hey, I'm Sam PAROT! </h1>
-      </header>
-
-      <h2>Welcome to my portfolio! Here you will find all the informations about me, whether it's personal or about my work. Enjoy! ✨</h2>
-
-      <p>Let's discover my work ✨</p>
-      <a href="mailto:sam.parotech@gmail.com">sam.parotech@gmail.com</a>
-      <br />
-      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1LNlHXLcvGbZW4TmGZH0xQFQeslBokQ4awx0lWJBnqFgRo55wa8dK9OQN-NKmURwXrOpC-KChj">Book a call</a>
-    </div>
+    <Router>
+      <Navbar />
+      <Breadcrumbs />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/project/:id" element={<Project />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
