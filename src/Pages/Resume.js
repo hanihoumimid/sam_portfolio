@@ -1,5 +1,5 @@
 import React from 'react';
-import profilePhoto from '../img/sam_pp.webp'; // Chemin vers votre photo
+import profilePhoto from '../assets/sam_pp.webp'; // Chemin vers votre photo
 
 const Resume = () => {
   return (
