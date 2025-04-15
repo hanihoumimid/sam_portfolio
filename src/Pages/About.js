@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiExternalLink } from 'react-icons/fi';
 import { FaInstagram, FaSchool } from 'react-icons/fa';
-import they_worked_with_me from '../img/worked.webp';
+import they_worked_with_me from '../assets/worked.webp';
 
 const About = () => {
   const [isImageExpanded, setIsImageExpanded] = useState(false);

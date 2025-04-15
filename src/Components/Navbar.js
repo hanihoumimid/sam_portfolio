@@ -15,9 +15,9 @@ import {
   EnvelopeIcon,
   CalendarIcon,
 } from "@heroicons/react/24/outline";
-import { Link, useLocation } from "react-router-dom";
+import { href, Link, useLocation } from "react-router-dom";
 
-import sam_logo from "../img/sinj.svg";
+import sam_logo from "../assets/sinj.svg";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -30,6 +30,7 @@ export default function Navbar() {
     { name: "Home", href: "/", current: location.pathname === "/" },
     { name: "About me", href: "/about", current: location.pathname === "/about" },
     { name: "Projects", href: "/projects", current: location.pathname.startsWith("/projects") },
+    { name: "Resume", href: "/resume", current: location.pathname === "/resume"}
   ];
 
   const emailAddress = "mailto:sam.parotech@gmail.com";
@@ -37,97 +38,28 @@ export default function Navbar() {
     "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1LNlHXLcvGbZW4TmGZH0xQFQeslBokQ4awx0lWJBnqFgRo55wa8dK9OQN-NKmURwXrOpC-KChj";
 
   return (
-    <Disclosure as="nav" className="bg-gray-800">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          {/* Bouton menu pour mobile */}
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-none">
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon
-                aria-hidden="true"
-                className="block h-6 w-6 group-data-open:hidden"
-              />
-              <XMarkIcon
-                aria-hidden="true"
-                className="hidden h-6 w-6 group-data-open:block"
-              />
-            </DisclosureButton>
-          </div>
-          {/* Logo et Navigation */}
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
-              <img
-                src={sam_logo}
-                alt="Sam's Logo"
-                className="h-8 w-auto"
-              />
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={classNames(
-                      item.current
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                      "rounded-md px-3 py-2 text-sm font-medium"
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Actions */}
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
-            {/* Email Me */}
-            <a
-              href={emailAddress}
-              className="ml-3 flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              <EnvelopeIcon className="h-5 w-5" />
-              Email Me
-            </a>
-            {/* Book a Call */}
-            <a
-              href={calendarLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-3 flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              <CalendarIcon className="h-5 w-5" />
-              Book a Call
-            </a>
-          </div>
-        </div>
+    <header className="z-30 flex items-center w-full h-24 sm:h-32">
+    <div className="container flex items-center justify-between px-6 mx-auto">
+      <div className="flex items-center text-3xl font-black text-gray-800 uppercase dark:text-white">
+        <svg width="25" height="25" viewBox="0 0 1792 1792" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1664 1504v-768q-32 36-69 66-268 206-426 338-51 43-83 67t-86.5 48.5-102.5 24.5h-2q-48 0-102.5-24.5t-86.5-48.5-83-67q-158-132-426-338-37-30-69-66v768q0 13 9.5 22.5t22.5 9.5h1472q13 0 22.5 9.5t9.5 22.5zm0-1051v-24.5l-.5-13-3-12.5-5.5-9-9-7.5-14-2.5h-1472q-13 0-22.5 9.5t-9.5 22.5q0 168 147 284 193 152 401 317 6 5 35 29.5t46 37.5 44.5 31.5 50.5 27.5 43 9h2q20 0 43-9t50.5-27.5 44.5-31.5 46-37.5 35-29.5q208-165 401-317 54-43 100.5-115.5t46.5-131.5zm128-37v1088q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-1088q0-66 47-113t113-47h1472q66 0 113 47t47 113z"></path>
+        </svg>
+        <span className="mt-1 ml-3 text-xs">sam.parot@email.com</span>
       </div>
-
-      {/* Menu Mobile */}
-      <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pt-2 pb-3">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as={Link}
-              to={item.href}
-              className={classNames(
-                item.current
-                  ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "block rounded-md px-3 py-2 text-base font-medium"
-              )}
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
-        </div>
-      </DisclosurePanel>
-    </Disclosure>
+      <div className="flex items-center">
+        <nav className="items-center hidden text-lg text-gray-800 uppercase font-sen dark:text-white lg:flex">
+          <a href="#works" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Works</a>
+          <a href="#resume" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Resume</a>
+          <a href="#services" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Services</a>
+          <a href="#contact" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Contact</a>
+        </nav>
+        <button className="flex flex-col ml-4 lg:hidden">
+          <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white"></span>
+          <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white"></span>
+          <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white"></span>
+        </button>
+      </div>
+    </div>
+  </header>
   );
 }
