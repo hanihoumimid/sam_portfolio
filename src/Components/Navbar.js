@@ -29,7 +29,7 @@ export default function Navbar() {
   const navigation = [
     { name: "Home", href: "/", current: location.pathname === "/" },
     { name: "About me", href: "/about", current: location.pathname === "/about" },
-    { name: "Projects", href: "/projects", current: location.pathname.startsWith("/projects") },
+    { name: "Projects", href: "/project", current: location.pathname.startsWith("/projects") },
     { name: "Resume", href: "/resume", current: location.pathname === "/resume"}
   ];
 
@@ -48,10 +48,10 @@ export default function Navbar() {
       </div>
       <div className="flex items-center">
         <nav className="items-center hidden text-lg text-gray-800 uppercase font-sen dark:text-white lg:flex">
-          <a href="#works" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Works</a>
-          <a href="#resume" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Resume</a>
-          <a href="#services" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Services</a>
-          <a href="#contact" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Contact</a>
+          <a href="/" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Home</a>
+          <a href="/about" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">About me</a>
+          <a href="/resume" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Resume</a>
+          <a href="/project" className="flex px-6 py-2 hover:text-black dark:hover:text-gray-300">Project</a>
         </nav>
         <button className="flex flex-col ml-4 lg:hidden">
           <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white"></span>

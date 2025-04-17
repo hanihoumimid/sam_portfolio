@@ -8,16 +8,17 @@ import Navbar from './Components/Navbar';
 import Breadcrumbs from './Components/Breadcrumbs';
 import Footer from './Components/Footer';
 import Resume from './Pages/Resume';
+import Header from './Components/Header';
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <Breadcrumbs />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/project/:id" element={<Project />} />
+        <Route path="/project" element={<Project />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
       <Footer />

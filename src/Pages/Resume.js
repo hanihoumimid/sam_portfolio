@@ -90,7 +90,7 @@ const Resume = () => {
           </section>
 
           {/* Skills Section */}
-          <section className="mb-10">
+          <section className="mb-10 adobe">
             <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-indigo-200 pb-2 mb-4">Skills</h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
