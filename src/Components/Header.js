@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Header() {
   return (
     <header className="z-30 flex items-center w-full h-24 sm:h-32 bg-white dark:bg-gray-900 shadow-sm">
@@ -42,22 +44,22 @@ function Header() {
         {/* Navigation */}
         <div className="flex items-center">
           <nav className="items-center hidden text-lg text-gray-800 dark:text-gray-300 font-sen lg:flex">
-            <a href="/" className="relative px-6 py-2 group">
+            <Link to="/" className="relative px-6 py-2 group">
               Home
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-            </a>
-            <a href="/about" className="relative px-6 py-2 group">
+            </Link>
+            <Link to="/about" className="relative px-6 py-2 group">
               About me
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-            </a>
-            <a href="/resume" className="relative px-6 py-2 group">
+            </Link>
+            <Link to="/resume" className="relative px-6 py-2 group">
               Resume
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-            </a>
-            <a href="/project" className="relative px-6 py-2 group">
+            </Link>
+            <Link to="/project" className="relative px-6 py-2 group">
               Project
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-            </a>
+            </Link>
           </nav>
           <button className="flex flex-col ml-4 lg:hidden">
             <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white"></span>

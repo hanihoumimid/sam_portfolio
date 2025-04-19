@@ -1,18 +1,16 @@
-import logo from './logo.svg';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Project from './Pages/Project';
-import Navbar from './Components/Navbar';
+import Resume from './Pages/Resume';
 import Breadcrumbs from './Components/Breadcrumbs';
 import Footer from './Components/Footer';
-import Resume from './Pages/Resume';
 import Header from './Components/Header';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter basename="/sam_portfolio">
       <Breadcrumbs />
       <Header />
       <Routes>
@@ -22,7 +20,7 @@ function App() {
         <Route path="/resume" element={<Resume />} />
       </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 

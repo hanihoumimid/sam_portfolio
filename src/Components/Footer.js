@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 function Footer(){
     return(
-        <p>©2025 Sam Parot</p>
+        <p className="bg-custom-black text-white text-center text-gray-600 dark:text-gray-200 ">©2025 Sam Parot</p>
     );
 }
 

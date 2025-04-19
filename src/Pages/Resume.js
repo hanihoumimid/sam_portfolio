@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import profilePhoto from '../assets/sam_pp.webp'; // Chemin vers votre photo
 
 const Resume = () => {
+  const [visibleSection, setVisibleSection] = useState(null);
+
+  const toggleSection = (section) => {
+    setVisibleSection((prevSection) => (prevSection === section ? null : section));
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
@@ -9,18 +15,18 @@ const Resume = () => {
         <div className="bg-indigo-700 p-8 text-white relative">
           {/* Photo de profil */}
           <div className="absolute right-8 top-8 w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-white overflow-hidden shadow-lg">
-            <img 
-              src={profilePhoto} 
+            <img
+              src={profilePhoto}
               alt="Sam PAROT"
               className="w-full h-full object-cover"
             />
           </div>
-          
+
           {/* Texte du header */}
           <div className="pr-28 sm:pr-36"> {/* Espace pour la photo */}
             <h1 className="text-3xl sm:text-4xl font-bold">Sam PAROT</h1>
             <p className="text-lg sm:text-xl mt-2 text-indigo-100">Graphic Designer & Social Media Manager</p>
-            
+
             {/* Coordonnées */}
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
               <span className="flex items-center text-sm sm:text-base">
@@ -46,12 +52,12 @@ const Resume = () => {
           </div>
         </div>
 
-               {/* Main Content */}
-               <div className="p-8">
+        {/* Main Content */}
+        <div className="p-8">
           {/* Experience Section */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-indigo-200 pb-2 mb-4">Professional Experience</h2>
-            
+
             <div className="mb-6">
               <div className="flex justify-between">
                 <h3 className="text-xl font-semibold">Social Media Manager</h3>
@@ -145,6 +151,31 @@ const Resume = () => {
             </div>
           </section>
         </div>
+      </div>
+      <div className="skills">
+        <h5 onClick={() => toggleSection('software')} className="cursor-pointer">Software</h5>
+        {visibleSection === 'software' && (
+          <div id="Software">
+            <p>Adobe Illustrator</p>
+            <p>Adobe Lightroom</p>
+            <p>Notion</p>
+          </div>
+        )}
+        <h5 onClick={() => toggleSection('expertise')} className="cursor-pointer">Expertise</h5>
+        {visibleSection === 'expertise' && (
+          <div id="Expertise">
+            <p>Logo Design</p>
+            <p>Branding</p>
+            <p>Teamwork</p>
+          </div>
+        )}
+        <h5 onClick={() => toggleSection('language')} className="cursor-pointer">Language</h5>
+        {visibleSection === 'language' && (
+          <div id="Lang">
+            <p>French: native</p>
+            <p>English: Advanced</p>
+          </div>
+        )}
       </div>
     </div>
   );
