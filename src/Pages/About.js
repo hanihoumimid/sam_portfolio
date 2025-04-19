@@ -68,7 +68,7 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-gray-900 py-24 sm:py-32 relative">
+    <div className="bg-gray-800 py-24 sm:py-32 relative">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-20">
         
         {/* About Me Section */}

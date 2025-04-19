@@ -1,0 +1,3 @@
+ - regler le breadcumbs pour qu'il ait le path courant
+ - faire un div avec 4 catégories et 1 addEventListener Onclick avec un display: none (de mémoire c'est ça) pour passer d'une section à une autre
+ - darkmode
