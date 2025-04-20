@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="z-30 flex items-center w-full h-24 sm:h-32 bg-white dark:bg-gray-900 shadow-sm">
       <div className="container flex items-center justify-between px-6 mx-auto">
-        {/* Groupe Email + Book a call */}
+        {/* Groupe Email + Book a call (gauche) */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           {/* Email */}
           <a 
@@ -43,7 +46,8 @@ function Header() {
 
         {/* Navigation */}
         <div className="flex items-center">
-          <nav className="items-center hidden text-lg text-gray-800 dark:text-gray-300 font-sen lg:flex">
+          {/* Menu desktop */}
+          <nav className="hidden sm:flex items-center text-lg text-gray-800 dark:text-gray-300 font-sen">
             <Link to="/" className="relative px-6 py-2 group">
               Home
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
@@ -61,11 +65,81 @@ function Header() {
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
           </nav>
-          <button className="flex flex-col ml-4 lg:hidden">
-            <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white"></span>
-            <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white"></span>
-            <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white"></span>
-          </button>
+
+          {/* Menu hamburger (droite) */}
+          <div className="sm:hidden ml-4">
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-800 dark:text-gray-300 hover:text-blue-500 focus:outline-none"
+            >
+              <span className="sr-only">Open menu</span>
+              <svg
+                className={`h-6 w-6 ${isMenuOpen ? 'hidden' : 'block'}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg
+                className={`h-6 w-6 ${isMenuOpen ? 'block' : 'hidden'}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+   {/* Menu mobile (droite) */}
+   <div className={`fixed inset-0 z-40 ${isMenuOpen ? 'block' : 'hidden'} sm:hidden`}>
+          {/* Overlay */}
+          <div 
+            className="fixed inset-0 bg-black/50 transition-opacity" 
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Panneau du menu - Modifié ici */}
+          <div 
+            className={`fixed top-0 right-0 h-full bg-white dark:bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out ${
+              isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            } w-auto min-w-fit max-w-full`}
+          >
+            <nav className="flex flex-col p-4 mt-24 min-w-[200px]">
+              <Link 
+                to="/" 
+                className="py-3 px-6 text-left text-white hover:bg-gray-100 dark:hover:bg-gray-800 whitespace-nowrap"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/about" 
+                className="py-3 px-6 text-left text-white hover:bg-gray-100 dark:hover:bg-gray-800 whitespace-nowrap"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About me
+              </Link>
+              <Link 
+                to="/resume" 
+                className="py-3 px-6 text-left text-white hover:bg-gray-100 dark:hover:bg-gray-800 whitespace-nowrap"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Resume
+              </Link>
+              <Link 
+                to="/project" 
+                className="py-3 px-6 text-left text-white hover:bg-gray-100 dark:hover:bg-gray-800 whitespace-nowrap"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Project
+              </Link>
+            </nav>
+          </div>
         </div>
       </div>
     </header>
