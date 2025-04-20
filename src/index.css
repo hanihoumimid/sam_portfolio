@@ -18,28 +18,6 @@ code {
     monospace;
 }
 
-.skills {
-  display: flex;
-  /* flex-direction: row; */
-  align-items: flex-start;
-  gap: 1rem; /* Ajustez l'espace entre les éléments */
-  border: 3px black ;
-}
-
-
-.skills h5:hover{
-  text-decoration: underline;
-}
-
-.skills h5 {
-  cursor: pointer;
-}
-
-.skills #Expertise, #Software, #Lang{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
 
 /* .fade-enter {
   opacity: 0;

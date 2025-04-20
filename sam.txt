@@ -1,3 +1,3 @@
  - regler le breadcumbs pour qu'il ait le path courant
- - faire un div avec 4 catégories et 1 addEventListener Onclick avec un display: none (de mémoire c'est ça) pour passer d'une section à une autre
+ - bien faire le div des skills, mettre en forme, ajouter les skills manquants
  - darkmode
