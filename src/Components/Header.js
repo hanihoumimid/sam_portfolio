@@ -52,16 +52,16 @@ function Header() {
               Home
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
-            <Link to="/about" className="relative px-6 py-2 group">
+            <Link to="/About" className="relative px-6 py-2 group">
               About me
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
-            <Link to="/resume" className="relative px-6 py-2 group">
+            <Link to="/Resume" className="relative px-6 py-2 group">
               Resume
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
-            <Link to="/project" className="relative px-6 py-2 group">
-              Project
+            <Link to="/Projects" className="relative px-6 py-2 group">
+              Projects
               <span className="absolute bottom-1 left-6 right-6 h-0.5 bg-blue-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
           </nav>
@@ -118,25 +118,25 @@ function Header() {
                 Home
               </Link>
               <Link 
-                to="/about" 
+                to="/About" 
                 className="py-3 px-6 text-left text-white hover:bg-gray-100 dark:hover:bg-gray-800 whitespace-nowrap"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About me
               </Link>
               <Link 
-                to="/resume" 
+                to="/Resume" 
                 className="py-3 px-6 text-left text-white hover:bg-gray-100 dark:hover:bg-gray-800 whitespace-nowrap"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resume
               </Link>
               <Link 
-                to="/project" 
+                to="/Projects" 
                 className="py-3 px-6 text-left text-white hover:bg-gray-100 dark:hover:bg-gray-800 whitespace-nowrap"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Project
+                Projects
               </Link>
             </nav>
           </div>
