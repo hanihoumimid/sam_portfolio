@@ -1,17 +1,45 @@
 {
   "files": {
-    "main.css": "/sam_portfolio/static/css/main.95cab403.css",
-    "main.js": "/sam_portfolio/static/js/main.7ef8a2a6.js",
-    "static/js/453.fe0dc83e.chunk.js": "/sam_portfolio/static/js/453.fe0dc83e.chunk.js",
+    "main.css": "/sam_portfolio/static/css/main.02cfb6d9.css",
+    "main.js": "/sam_portfolio/static/js/main.404cb303.js",
+    "static/js/453.e16f9c3e.chunk.js": "/sam_portfolio/static/js/453.e16f9c3e.chunk.js",
+    "static/media/projects_vid.mp4": "/sam_portfolio/static/media/projects_vid.a5f87f54359515320507.mp4",
+    "static/media/projects_work.webp": "/sam_portfolio/static/media/projects_work.cc2f0415df266f605547.webp",
+    "static/media/faye1.webp": "/sam_portfolio/static/media/faye1.7b9fd76144a55aee78b2.webp",
+    "static/media/project_banniere.webp": "/sam_portfolio/static/media/project_banniere.7b9fd76144a55aee78b2.webp",
     "static/media/sam_pp.webp": "/sam_portfolio/static/media/sam_pp.702920e7000baf64b77c.webp",
+    "static/media/lcoin_work.webp": "/sam_portfolio/static/media/lcoin_work.e1fe39f901d11acb321f.webp",
+    "static/media/heyman_work.webp": "/sam_portfolio/static/media/heyman_work.eba1a7d137c633565532.webp",
     "static/media/worked.webp": "/sam_portfolio/static/media/worked.68d88e839f0a29c41d4c.webp",
+    "static/media/trust_work.webp": "/sam_portfolio/static/media/trust_work.bf0227c86a0aa27b1342.webp",
+    "static/media/trust_banniere.png": "/sam_portfolio/static/media/trust_banniere.d471f8122e25ac46dfc4.png",
+    "static/media/parotech_work2.webp": "/sam_portfolio/static/media/parotech_work2.b04410c11505db2c9e49.webp",
+    "static/media/faye3.webp": "/sam_portfolio/static/media/faye3.b9dc1de4e157af3fdafd.webp",
+    "static/media/banniere_heyman.webp": "/sam_portfolio/static/media/banniere_heyman.dbf1ea23dbe0868a2afc.webp",
+    "static/media/trust_work3.webp": "/sam_portfolio/static/media/trust_work3.566c33e0e806506af158.webp",
+    "static/media/faye4.webp": "/sam_portfolio/static/media/faye4.e577352f54c184f37241.webp",
+    "static/media/work_cve1.webp": "/sam_portfolio/static/media/work_cve1.d47ba9557a76bf722a87.webp",
+    "static/media/trust_work2.webp": "/sam_portfolio/static/media/trust_work2.6315327ba1b195778b9f.webp",
+    "static/media/work_cve2.webp": "/sam_portfolio/static/media/work_cve2.880e596eee9a7a2b1322.webp",
+    "static/media/faye2.webp": "/sam_portfolio/static/media/faye2.aa13bd70c670651c0db7.webp",
+    "static/media/parotech_work1.webp": "/sam_portfolio/static/media/parotech_work1.1bd412ba2b8f983595f5.webp",
+    "static/media/parotech_banniere.webp": "/sam_portfolio/static/media/parotech_banniere.c3901fde44ae16155edd.webp",
+    "static/media/banniere_cve.webp": "/sam_portfolio/static/media/banniere_cve.146126753106c84c7d13.webp",
+    "static/media/lcoin_banniere.webp": "/sam_portfolio/static/media/lcoin_banniere.7e3195ae280e2d0c8b50.webp",
+    "static/media/trust_logo.svg": "/sam_portfolio/static/media/trust_logo.8cfc42fdf65be6aa20af761239e108cb.svg",
+    "static/media/project_logo.svg": "/sam_portfolio/static/media/project_logo.a83e3834cd6c78a47d5f1bd4dd693822.svg",
+    "static/media/bande.webp": "/sam_portfolio/static/media/bande.8254dae8de5006a74c61.webp",
+    "static/media/lcoin_logo.svg": "/sam_portfolio/static/media/lcoin_logo.3104468867fe05a3fa2e2231d65f9164.svg",
+    "static/media/icone_heyman.svg": "/sam_portfolio/static/media/icone_heyman.4309e8ce8c5c2f0108d65b8dceb3460a.svg",
+    "static/media/cve_logo.svg": "/sam_portfolio/static/media/cve_logo.cce546d697b53788b0c934e8aa2c5fa1.svg",
     "index.html": "/sam_portfolio/index.html",
-    "main.95cab403.css.map": "/sam_portfolio/static/css/main.95cab403.css.map",
-    "main.7ef8a2a6.js.map": "/sam_portfolio/static/js/main.7ef8a2a6.js.map",
-    "453.fe0dc83e.chunk.js.map": "/sam_portfolio/static/js/453.fe0dc83e.chunk.js.map"
+    "static/media/parotech_logo.svg": "/sam_portfolio/static/media/parotech_logo.d98aaa82cb8f6f182efd1b1861eb9c91.svg",
+    "main.02cfb6d9.css.map": "/sam_portfolio/static/css/main.02cfb6d9.css.map",
+    "main.404cb303.js.map": "/sam_portfolio/static/js/main.404cb303.js.map",
+    "453.e16f9c3e.chunk.js.map": "/sam_portfolio/static/js/453.e16f9c3e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.95cab403.css",
-    "static/js/main.7ef8a2a6.js"
+    "static/css/main.02cfb6d9.css",
+    "static/js/main.404cb303.js"
   ]
 }
