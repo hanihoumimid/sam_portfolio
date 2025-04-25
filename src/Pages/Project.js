@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { InstagramEmbed, YouTubeEmbed, PinterestEmbed } from "react-social-media-embed";
+import { InstagramEmbed, YouTubeEmbed } from "react-social-media-embed";
 
 // Importez toutes vos images
 import cve_logo from '../assets/cve_logo.svg';
@@ -32,7 +32,7 @@ import trust_work from '../assets/trust_work.webp';
 import trust_work2 from '../assets/trust_work2.webp';
 import trust_work3 from '../assets/trust_work3.webp';
 
-const ProjectsGalleryDark = () => {
+const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
@@ -495,4 +495,4 @@ const ProjectsGalleryDark = () => {
   );
 };
 
-export default ProjectsGalleryDark;
+export default Projects;
