@@ -139,7 +139,7 @@ const Projects = () => {
 
             <MediaContainer type="youtube">
               <YouTubeEmbed 
-                url="https://www.youtube.com/watch?v=c5ZZy_2uwD4" 
+                url="https://youtu.be/c5ZZy_2uwD4" 
                 width="100%" 
                 height="400px"
                 className="rounded-lg overflow-hidden" 
@@ -147,7 +147,7 @@ const Projects = () => {
             </MediaContainer>
             <MediaContainer type="youtube">
               <YouTubeEmbed 
-                url="https://www.youtube.com/watch?v=COYNI22hghE" 
+                url="https://youtu.be/COYNI22hghE" 
                 width="100%" 
                 height="400px"
                 className="rounded-lg overflow-hidden" 
@@ -155,7 +155,7 @@ const Projects = () => {
             </MediaContainer>
             <MediaContainer type="youtube">
               <YouTubeEmbed 
-                url="https://www.youtube.com/watch?v=IEbZZ6G91z8" 
+                url="https://youtu.be/IEbZZ6G91z8" 
                 width="100%" 
                 height="400px"
                 className="rounded-lg overflow-hidden" 
@@ -246,19 +246,19 @@ const Projects = () => {
             </MediaContainer>
             <p className="text-gray-500 dark:text-gray-400">I also helped create these two videos on Instagram.</p>
             <MediaContainer type="instagram">
-              <div className="aspect-[4/5] w-full">
+              <div className="aspect-[4/5] w-full max-w-[350px] mx-auto">
                 <InstagramEmbed 
                   url="https://www.instagram.com/p/C92hu_mAWpg/" 
-                  width="100%" 
+                  width="100%"
                   className="!w-full" 
                 />
               </div>
             </MediaContainer>
             <MediaContainer type="instagram">
-              <div className="aspect-[4/5] w-full">
+              <div className="aspect-[4/5] w-full max-w-[350px] mx-auto">
                 <InstagramEmbed 
                   url="https://www.instagram.com/p/C8n1Ty5Of3-/" 
-                  width="100%" 
+                  width="100%"
                   className="!w-full" 
                 />
               </div>
@@ -360,17 +360,20 @@ const Projects = () => {
           </a>
 
           {/* Option: Widget de profil Pinterest (nécessite le script Pinterest) */}
-          <div className="pinterest-profile-widget">
-            <a
-              data-pin-do="embedUser"
-              data-pin-board-width="400"
-              data-pin-scale-height="240"
-              data-pin-scale-width="80"
-              href="https://www.pinterest.fr/communicationpld/"
-            >
-              Voir le profil Pinterest
-            </a>
-          </div>
+          <MediaContainer type="pinterest">
+            <div className="aspect-[4/5] w-full max-w-[350px] mx-auto">
+              <a
+                data-pin-do="embedUser"
+                data-pin-board-width="350"
+                data-pin-scale-height="440"
+                data-pin-scale-width="80"
+                href="https://www.pinterest.fr/communicationpld/"
+                className="!w-full"
+              >
+                Voir le profil Pinterest
+              </a>
+            </div>
+          </MediaContainer>
         </div>
 
             <h3 className="text-xl font-medium text-gray-700 dark:text-gray-300 pt-6">Merchandising</h3>
