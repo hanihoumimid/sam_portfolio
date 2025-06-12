@@ -139,7 +139,7 @@ const Projects = () => {
 
             <MediaContainer type="youtube">
               <YouTubeEmbed 
-                url="https://youtu.be/c5ZZy_2uwD4" 
+                url="https://www.youtube.com/watch?v=c5ZZy_2uwD4" 
                 width="100%" 
                 height="400px"
                 className="rounded-lg overflow-hidden" 
@@ -147,7 +147,7 @@ const Projects = () => {
             </MediaContainer>
             <MediaContainer type="youtube">
               <YouTubeEmbed 
-                url="https://youtu.be/COYNI22hghE" 
+                url="https://www.youtube.com/watch?v=COYNI22hghE" 
                 width="100%" 
                 height="400px"
                 className="rounded-lg overflow-hidden" 
@@ -155,7 +155,7 @@ const Projects = () => {
             </MediaContainer>
             <MediaContainer type="youtube">
               <YouTubeEmbed 
-                url="https://youtu.be/IEbZZ6G91z8" 
+                url="https://www.youtube.com/watch?v=IEbZZ6G91z8" 
                 width="100%" 
                 height="400px"
                 className="rounded-lg overflow-hidden" 
@@ -248,7 +248,7 @@ const Projects = () => {
             <MediaContainer type="instagram">
               <div className="aspect-[4/5] w-full">
                 <InstagramEmbed 
-                  url="https://www.instagram.com/reel/C92hu_mAWpg/" 
+                  url="https://www.instagram.com/p/C92hu_mAWpg/" 
                   width="100%" 
                   className="!w-full" 
                 />
@@ -257,7 +257,7 @@ const Projects = () => {
             <MediaContainer type="instagram">
               <div className="aspect-[4/5] w-full">
                 <InstagramEmbed 
-                  url="https://www.instagram.com/reel/C8n1Ty5Of3-/" 
+                  url="https://www.instagram.com/p/C8n1Ty5Of3-/" 
                   width="100%" 
                   className="!w-full" 
                 />

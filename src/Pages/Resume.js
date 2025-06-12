@@ -279,13 +279,13 @@ const Resume = () => {
             Experience
           </motion.h2>
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
             variants={itemVariants}
           >
             {experiences.map((exp, index) => (
               <motion.div 
                 key={index} 
-                className="border-l-2 border-indigo-400 pl-3 space-y-1.5"
+                className="border-l-2 border-indigo-400 pl-3 space-y-1.5 pr-2"
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, x: 10 }}
                 transition={{ type: "spring", stiffness: 300 }}

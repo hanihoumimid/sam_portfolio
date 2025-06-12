@@ -50,7 +50,7 @@ const Footer = () => {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-6 md:flex md:items-center md:justify-between lg:px-8">
         <motion.div 
           className="flex justify-center space-x-6 md:order-2"
           variants={itemVariants}
@@ -64,12 +64,12 @@ const Footer = () => {
               whileTap={{ scale: 0.9 }}
             >
               <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
+              <item.icon className="h-5 w-5" aria-hidden="true" />
             </motion.a>
           ))}
         </motion.div>
         <motion.div 
-          className="mt-8 md:order-1 md:mt-0"
+          className="mt-4 md:order-1 md:mt-0"
           variants={itemVariants}
         >
           <p className="text-center text-xs leading-5 text-gray-500 dark:text-gray-400">
