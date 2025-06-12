@@ -39,6 +39,28 @@ const Projects = () => {
   const [expandedImage, setExpandedImage] = useState(null);
   const modalRef = useRef(null);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   // Bloque le scroll quand l'image est agrandie
   useEffect(() => {
     if (expandedImage) {
@@ -557,16 +579,32 @@ const Projects = () => {
   }, [isModalOpen]);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+    <motion.div 
+      className="min-h-screen bg-gray-50 dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">My Projects</h1>
+        <motion.h1 
+          className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
+          variants={itemVariants}
+        >
+          My Projects
+        </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={itemVariants}
+        >
+          {projects.map((project, index) => (
+            <motion.div
               key={project.id}
               onClick={() => openProjectModal(project.id)}
               className="group relative cursor-pointer transition-all duration-500 hover:z-10"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="h-full transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:rotate-1">
                 <div className="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
@@ -591,45 +629,70 @@ const Projects = () => {
                   </div>
                   <div className="p-4 flex-grow dark:text-gray-200 text-center">
                     <div className="flex justify-center mb-2">
-                      <img src={project.logo} alt={`${project.title} logo`} className="h-12 mx-auto" />
+                      <motion.img 
+                        src={project.logo} 
+                        alt={`${project.title} logo`} 
+                        className="h-12 mx-auto"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      />
                     </div>
                     <p className="text-gray-500 dark:text-gray-400">Click to view details</p>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 overflow-y-auto">
-          <div
+        <motion.div 
+          className="fixed inset-0 z-50 overflow-y-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
             onClick={closeProjectModal}
-          ></div>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          ></motion.div>
 
           <div className="relative min-h-screen flex items-center justify-center p-4">
-            <div
+            <motion.div
               ref={modalRef}
               className="bg-white dark:bg-gray-700 rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               {activeProject && (
                 <>
                   {projects.find(p => p.id === activeProject)?.content}
-                  <div className="sticky bottom-0 bg-gradient-to-t from-white dark:from-gray-700 to-transparent h-20 flex items-end justify-center pb-4">
-                    <button
+                  <motion.div 
+                    className="sticky bottom-0 bg-gradient-to-t from-white dark:from-gray-700 to-transparent h-20 flex items-end justify-center pb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <motion.button
                       onClick={closeProjectModal}
                       className="px-6 py-2 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-500 rounded-lg text-gray-700 dark:text-gray-200 transition-colors duration-200 font-medium shadow-md"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       Close Project
-                    </button>
-                  </div>
+                    </motion.button>
+                  </motion.div>
                 </>
               )}
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Overlay plein écran avec animation */}
@@ -667,7 +730,7 @@ const Projects = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 
