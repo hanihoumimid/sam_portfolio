@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sam_portfolio/static/css/main.6163b2dc.css",
-    "main.js": "/sam_portfolio/static/js/main.85cbe4cf.js",
+    "main.css": "/sam_portfolio/static/css/main.c3b7327b.css",
+    "main.js": "/sam_portfolio/static/js/main.7ccc13e0.js",
     "static/js/453.e16f9c3e.chunk.js": "/sam_portfolio/static/js/453.e16f9c3e.chunk.js",
     "static/media/projects_vid.mp4": "/sam_portfolio/static/media/projects_vid.a5f87f54359515320507.mp4",
     "static/media/projects_work.webp": "/sam_portfolio/static/media/projects_work.cc2f0415df266f605547.webp",
@@ -35,12 +35,12 @@
     "static/media/cve_logo.svg": "/sam_portfolio/static/media/cve_logo.cce546d697b53788b0c934e8aa2c5fa1.svg",
     "index.html": "/sam_portfolio/index.html",
     "static/media/parotech_logo.svg": "/sam_portfolio/static/media/parotech_logo.d98aaa82cb8f6f182efd1b1861eb9c91.svg",
-    "main.6163b2dc.css.map": "/sam_portfolio/static/css/main.6163b2dc.css.map",
-    "main.85cbe4cf.js.map": "/sam_portfolio/static/js/main.85cbe4cf.js.map",
+    "main.c3b7327b.css.map": "/sam_portfolio/static/css/main.c3b7327b.css.map",
+    "main.7ccc13e0.js.map": "/sam_portfolio/static/js/main.7ccc13e0.js.map",
     "453.e16f9c3e.chunk.js.map": "/sam_portfolio/static/js/453.e16f9c3e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6163b2dc.css",
-    "static/js/main.85cbe4cf.js"
+    "static/css/main.c3b7327b.css",
+    "static/js/main.7ccc13e0.js"
   ]
 }
