@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import pp from '../assets/sam_pp.webp';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Resume = () => {
   const [visibleSection, setVisibleSection] = useState(null);
@@ -170,10 +171,10 @@ const Resume = () => {
           </div>
 
           <p className="text-lg text-white font-medium leading-relaxed flex-1">
-            Hi, I’m Sam — currently a student at the National Aeronautical School and an apprentice designer.<br /><br />
-            I’ve been studying aircraft for the past three years and am passionate about design. I aspire to become a designer in the future.<br /><br />
-            Always on the lookout for new adventures — whether it’s traveling or engaging in exciting job opportunities — I bring motivation and dedication to everything I do.<br /><br />
-            I’m a French native, fluent in English, and through my various experiences, I’ve developed strong teamwork skills, active listening abilities, and effective communication.
+            Hi, I'm Sam — currently a student at the National Aeronautical School and an apprentice designer.<br /><br />
+            I've been studying aircraft for the past three years and am passionate about design. I aspire to become a designer in the future.<br /><br />
+            Always on the lookout for new adventures — whether it's traveling or engaging in exciting job opportunities — I bring motivation and dedication to everything I do.<br /><br />
+            I'm a French native, fluent in English, and through my various experiences, I've developed strong teamwork skills, active listening abilities, and effective communication.
           </p>
         </div>
 
@@ -219,77 +220,141 @@ const Resume = () => {
           <h2 className="text-2xl font-bold text-white sm:text-3xl">My Skills</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
             {/* Onglet Software */}
             <div className="space-y-4">
-              <h3
+              <motion.h3
                 onClick={() => toggleSection('software')}
-                className="cursor-pointer text-lg font-semibold text-indigo-300 border-b border-indigo-400 pb-2 hover:bg-gray-700/30 p-2 rounded-lg transition-colors"
+                className={`cursor-pointer text-lg font-semibold text-indigo-300 border-b border-indigo-400 pb-2 p-2 rounded-t-lg transition-colors ${
+                  visibleSection === 'software' ? 'bg-gray-700/30' : 'hover:bg-gray-700/20'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Software
-              </h3>
-              {visibleSection === 'software' && (
-                <div className="flex flex-wrap gap-4">
-                  {skillsData.software.map((skill, index) => (
-                    <div key={index} className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-700/30">
-                      <span className="text-gray-300">{skill.name}</span>
-                      <span className={`px-2 py-1 text-xs rounded-full
-                        ${skill.level === 'Advanced' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'}`}>
-                        {skill.level}
-                      </span>
+              </motion.h3>
+              <AnimatePresence>
+                {visibleSection === 'software' && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="grid grid-cols-1 gap-2 p-3 bg-gray-700/10 rounded-b-lg">
+                      {skillsData.software.map((skill, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ x: -20, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-700/30 transition-colors"
+                        >
+                          <span className="text-gray-300">{skill.name}</span>
+                          <span className={`px-3 py-1 text-xs rounded-full ${
+                            skill.level === 'Advanced' 
+                              ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                              : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                          }`}>
+                            {skill.level}
+                          </span>
+                        </motion.div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             {/* Onglet Expertise */}
             <div className="space-y-4">
-              <h3
+              <motion.h3
                 onClick={() => toggleSection('expertise')}
-                className="cursor-pointer text-lg font-semibold text-indigo-300 border-b border-indigo-400 pb-2 hover:bg-gray-700/30 p-2 rounded-lg transition-colors"
+                className={`cursor-pointer text-lg font-semibold text-indigo-300 border-b border-indigo-400 pb-2 p-2 rounded-t-lg transition-colors ${
+                  visibleSection === 'expertise' ? 'bg-gray-700/30' : 'hover:bg-gray-700/20'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Expertise
-              </h3>
-              {visibleSection === 'expertise' && (
-                <div className="flex flex-wrap gap-4">
-                  {skillsData.expertise.map((skill, index) => (
-                    <div key={index} className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-700/30">
-                      <span className="text-gray-300">{skill.name}</span>
-                      {skill.level && (
-                        <span className={`px-2 py-1 text-xs rounded-full
-                          ${skill.level === 'Advanced' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'}`}>
-                          {skill.level}
-                        </span>
-                      )}
+              </motion.h3>
+              <AnimatePresence>
+                {visibleSection === 'expertise' && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="grid grid-cols-1 gap-2 p-3 bg-gray-700/10 rounded-b-lg">
+                      {skillsData.expertise.map((skill, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ x: -20, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-700/30 transition-colors"
+                        >
+                          <span className="text-gray-300">{skill.name}</span>
+                          {skill.level && (
+                            <span className={`px-3 py-1 text-xs rounded-full ${
+                              skill.level === 'Advanced' 
+                                ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                                : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                            }`}>
+                              {skill.level}
+                            </span>
+                          )}
+                        </motion.div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             {/* Onglet Languages */}
             <div className="space-y-4">
-              <h3
+              <motion.h3
                 onClick={() => toggleSection('languages')}
-                className="cursor-pointer text-lg font-semibold text-indigo-300 border-b border-indigo-400 pb-2 hover:bg-gray-700/30 p-2 rounded-lg transition-colors"
+                className={`cursor-pointer text-lg font-semibold text-indigo-300 border-b border-indigo-400 pb-2 p-2 rounded-t-lg transition-colors ${
+                  visibleSection === 'languages' ? 'bg-gray-700/30' : 'hover:bg-gray-700/20'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Languages
-              </h3>
-              {visibleSection === 'languages' && (
-                <div className="flex flex-wrap gap-4">
-                  {skillsData.languages.map((lang, index) => (
-                    <div key={index} className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-700/30">
-                      <span className="text-gray-300">{lang.language}</span>
-                      <span className="px-2 py-1 text-xs rounded-full bg-blue-500/20 text-blue-300">
-                        {lang.level}
-                      </span>
+              </motion.h3>
+              <AnimatePresence>
+                {visibleSection === 'languages' && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="grid grid-cols-1 gap-2 p-3 bg-gray-700/10 rounded-b-lg">
+                      {skillsData.languages.map((lang, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ x: -20, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-700/30 transition-colors"
+                        >
+                          <span className="text-gray-300">{lang.language}</span>
+                          <span className="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                            {lang.level}
+                          </span>
+                        </motion.div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-
           </div>
         </div>
       </div>

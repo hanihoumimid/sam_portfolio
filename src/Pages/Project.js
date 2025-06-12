@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { InstagramEmbed, YouTubeEmbed } from "react-social-media-embed";
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Importez toutes vos images
 import cve_logo from '../assets/cve_logo.svg';
@@ -35,7 +36,24 @@ import trust_work3 from '../assets/trust_work3.webp';
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [expandedImage, setExpandedImage] = useState(null);
   const modalRef = useRef(null);
+
+  // Bloque le scroll quand l'image est agrandie
+  useEffect(() => {
+    if (expandedImage) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+      document.documentElement.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+      document.documentElement.style.overflow = 'auto';
+    };
+  }, [expandedImage]);
 
   // Composant pour les médias avec taille contrôlée
   const MediaContainer = ({ children, maxWidth = 'md' }) => (
@@ -51,13 +69,13 @@ const Projects = () => {
       banner: cve_banniere,
       logo: cve_logo,
       content: (
-        <div className="space-y-8 p-6 dark:text-gray-200">
-          <div className="flex justify-between items-start">
+        <div className="space-y-8 p-6 dark:text-gray-200 text-center">
+          <div className="flex justify-center items-start flex-col">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">CVE - My student association</h1>
-              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
+              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
             </div>
-            <img src={cve_logo} alt="CVE Logo" className="h-16" />
+            <img src={cve_logo} alt="CVE Logo" className="h-16 mx-auto" />
           </div>
 
           <section className="space-y-4">
@@ -81,18 +99,45 @@ const Projects = () => {
           <section className="space-y-6">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">Gallery</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <img src={cve_1} alt="CVE Work 1" className="rounded-lg shadow-md dark:shadow-gray-700" />
-              <img src={cve_2} alt="CVE Work 2" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(cve_1)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={cve_1} alt="CVE Work 1" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(cve_2)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={cve_2} alt="CVE Work 2" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
             </div>
 
             <MediaContainer type="youtube">
-              <YouTubeEmbed url="https://youtu.be/c5ZZy_2uwD4" width="100%" height="300px" />
+              <YouTubeEmbed 
+                url="https://youtu.be/c5ZZy_2uwD4" 
+                width="100%" 
+                height="400px"
+                className="rounded-lg overflow-hidden" 
+              />
             </MediaContainer>
             <MediaContainer type="youtube">
-              <YouTubeEmbed url="https://youtu.be/COYNI22hghE" width="100%" height="300px" />
+              <YouTubeEmbed 
+                url="https://youtu.be/COYNI22hghE" 
+                width="100%" 
+                height="400px"
+                className="rounded-lg overflow-hidden" 
+              />
             </MediaContainer>
             <MediaContainer type="youtube">
-              <YouTubeEmbed url="https://youtu.be/IEbZZ6G91z8" width="100%" height="300px" />
+              <YouTubeEmbed 
+                url="https://youtu.be/IEbZZ6G91z8" 
+                width="100%" 
+                height="400px"
+                className="rounded-lg overflow-hidden" 
+              />
             </MediaContainer>
           </section>
         </div>
@@ -104,20 +149,20 @@ const Projects = () => {
       banner: heyman_banniere,
       logo: heyman_logo,
       content: (
-        <div className="space-y-8 p-6 dark:text-gray-200">
-          <div className="flex justify-between items-start">
+        <div className="space-y-8 p-6 dark:text-gray-200 text-center">
+          <div className="flex justify-center items-start flex-col">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Heyman</h1>
-              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
+              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
             </div>
-            <img src={heyman_logo} alt="Heyman Logo" className="h-16" />
+            <img src={heyman_logo} alt="Heyman Logo" className="h-16 mx-auto" />
           </div>
 
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">About the project</h2>
             <ul className="list-disc pl-5 space-y-3 text-gray-700 dark:text-gray-300">
               <li>
-                Heyman is a morrocan DJ based in Montreal. He's mixing in some of the best clubs in Québec.
+                Heyman is a Moroccan DJ based in Montreal. He's mixing in some of the best clubs in Québec.
                 This dude is amazing and let me create his brand. Thanks to him, I discovered the world of
                 being a DJ in Montreal, and it was absolutely insane!
               </li>
@@ -127,7 +172,13 @@ const Projects = () => {
           <section className="space-y-6">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">LOGOS</h2>
             <MediaContainer maxWidth="lg">
-              <img src={heyman_work} alt="Heyman Brand Work" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(heyman_work)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={heyman_work} alt="Heyman Brand Work" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
             </MediaContainer>
           </section>
         </div>
@@ -139,13 +190,13 @@ const Projects = () => {
       banner: lcoin_banniere,
       logo: lcoin_logo,
       content: (
-        <div className="space-y-8 p-6 dark:text-gray-200">
-          <div className="flex justify-between items-start">
+        <div className="space-y-8 p-6 dark:text-gray-200 text-center">
+          <div className="flex justify-center items-start flex-col">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">L'coin</h1>
-              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
+              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
             </div>
-            <img src={lcoin_logo} alt="L'coin Logo" className="h-16" />
+            <img src={lcoin_logo} alt="L'coin Logo" className="h-16 mx-auto" />
           </div>
 
           <section className="space-y-4">
@@ -163,14 +214,32 @@ const Projects = () => {
           <section className="space-y-6">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">Gallery</h2>
             <MediaContainer maxWidth="lg">
-              <img src={lcoin_work} alt="L'coin Work" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(lcoin_work)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={lcoin_work} alt="L'coin Work" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
             </MediaContainer>
             <p className="text-gray-500 dark:text-gray-400">I also helped create these two videos on Instagram.</p>
             <MediaContainer type="instagram">
-              <InstagramEmbed url="https://www.instagram.com/reel/C92hu_mAWpg/" width="100%" />
+              <div className="aspect-[4/5] w-full">
+                <InstagramEmbed 
+                  url="https://www.instagram.com/reel/C92hu_mAWpg/" 
+                  width="100%" 
+                  className="!w-full" 
+                />
+              </div>
             </MediaContainer>
             <MediaContainer type="instagram">
-              <InstagramEmbed url="https://www.instagram.com/reel/C8n1Ty5Of3-/" width="100%" />
+              <div className="aspect-[4/5] w-full">
+                <InstagramEmbed 
+                  url="https://www.instagram.com/reel/C8n1Ty5Of3-/" 
+                  width="100%" 
+                  className="!w-full" 
+                />
+              </div>
             </MediaContainer>
           </section>
         </div>
@@ -182,13 +251,13 @@ const Projects = () => {
       banner: parotech_banniere,
       logo: parotech_logo,
       content: (
-        <div className="space-y-8 p-6 dark:text-gray-200">
-          <div className="flex justify-between items-start">
+        <div className="space-y-8 p-6 dark:text-gray-200 text-center">
+          <div className="flex justify-center items-start flex-col">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Parotech</h1>
-              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
+              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
             </div>
-            <img src={parotech_logo} alt="Parotech Logo" className="h-16" />
+            <img src={parotech_logo} alt="Parotech Logo" className="h-16 mx-auto" />
           </div>
 
           <section className="space-y-4">
@@ -217,7 +286,7 @@ const Projects = () => {
                   >
                     <img
                       src={parotech_site}
-                      alt="Parotech Website"
+                      alt="Parotech website preview"
                       className="w-8 h-auto rounded shadow-md dark:shadow-gray-700 hover:opacity-90 transition-opacity"
                     />
                     Parotech
@@ -236,7 +305,7 @@ const Projects = () => {
                   >
                     <img
                       src={parotech_site}
-                      alt="Parotech Website"
+                      alt="Parotech LED Design website preview"
                       className="w-8 h-auto rounded shadow-md dark:shadow-gray-700 hover:opacity-90 transition-opacity"
                     />
                     Parotech Led Design Porte Menu Led | Parotech LED Design | France
@@ -276,14 +345,28 @@ const Projects = () => {
               data-pin-scale-height="240"
               data-pin-scale-width="80"
               href="https://www.pinterest.fr/communicationpld/"
-            ></a>
+            >
+              Voir le profil Pinterest
+            </a>
           </div>
         </div>
 
             <h3 className="text-xl font-medium text-gray-700 dark:text-gray-300 pt-6">Merchandising</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <img src={parotech_work1} alt="Parotech Work 1" className="rounded-lg shadow-md dark:shadow-gray-700" />
-              <img src={parotech_work2} alt="Parotech Work 2" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(parotech_work1)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={parotech_work1} alt="Parotech Work 1" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(parotech_work2)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={parotech_work2} alt="Parotech Work 2" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
             </div>
           </section>
         </div>
@@ -295,13 +378,13 @@ const Projects = () => {
       banner: project_banniere,
       logo: project_logo,
       content: (
-        <div className="space-y-8 p-6 dark:text-gray-200">
-          <div className="flex justify-between items-start">
+        <div className="space-y-8 p-6 dark:text-gray-200 text-center">
+          <div className="flex justify-center items-start flex-col">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Projects Events</h1>
-              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
+              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
             </div>
-            <img src={project_logo} alt="Projects Events Logo" className="h-16" />
+            <img src={project_logo} alt="Projects Events Logo" className="h-16 mx-auto" />
           </div>
 
           <section className="space-y-4">
@@ -315,7 +398,13 @@ const Projects = () => {
             </ul>
             <div className="space-y-4">
               <MediaContainer maxWidth="xl">
-                <img src={project_work} alt="Projects Work" className="rounded-lg shadow-md dark:shadow-gray-700" />
+                <motion.div
+                  className="cursor-zoom-in"
+                  onClick={() => setExpandedImage(project_work)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <img src={project_work} alt="Projects Work" className="rounded-lg shadow-md dark:shadow-gray-700" />
+                </motion.div>
               </MediaContainer>
               <MediaContainer>
               <video
@@ -337,10 +426,34 @@ const Projects = () => {
               </li>
             </ul>
             <div className="grid grid-cols-2 gap-4">
-              <img src={fest1} alt="Festival 1" className="rounded-lg shadow-md dark:shadow-gray-700" />
-              <img src={fest2} alt="Festival 2" className="rounded-lg shadow-md dark:shadow-gray-700" />
-              <img src={fest3} alt="Festival 3" className="rounded-lg shadow-md dark:shadow-gray-700" />
-              <img src={fest4} alt="Festival 4" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(fest1)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={fest1} alt="Festival 1" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(fest2)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={fest2} alt="Festival 2" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(fest3)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={fest3} alt="Festival 3" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(fest4)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={fest4} alt="Festival 4" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
             </div>
             <p className="text-gray-700 dark:text-gray-300">They sold 100 t-shirts for 250 persons!</p>
           </section>
@@ -353,13 +466,13 @@ const Projects = () => {
       banner: faye_banniere,
       logo: trust_logo,
       content: (
-        <div className="space-y-8 p-6 dark:text-gray-200">
-          <div className="flex justify-between items-start">
+        <div className="space-y-8 p-6 dark:text-gray-200 text-center">
+          <div className="flex justify-center items-start flex-col">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">They Trusted me</h1>
-              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
+              <div className="mt-2 h-1 w-20 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
             </div>
-            <img src={trust_logo} alt="They Trusted me Logo" className="h-16" />
+            <img src={trust_logo} alt="They Trusted me Logo" className="h-16 mx-auto" />
           </div>
 
           <section className="space-y-4">
@@ -371,7 +484,13 @@ const Projects = () => {
               </li>
             </ul>
             <MediaContainer maxWidth="xl">
-              <img src={trust_work} alt="Trust Work" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(trust_work)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={trust_work} alt="Trust Work" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
             </MediaContainer>
           </section>
 
@@ -381,8 +500,20 @@ const Projects = () => {
               I helped a small music group to make promotion for their first concert:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <img src={trust_work2} alt="Music Group Work 1" className="rounded-lg shadow-md dark:shadow-gray-700" />
-              <img src={trust_work3} alt="Music Group Work 2" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(trust_work2)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={trust_work2} alt="Music Group Work 1" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
+              <motion.div
+                className="cursor-zoom-in"
+                onClick={() => setExpandedImage(trust_work3)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <img src={trust_work3} alt="Music Group Work 2" className="rounded-lg shadow-md dark:shadow-gray-700" />
+              </motion.div>
             </div>
           </section>
         </div>
@@ -440,20 +571,29 @@ const Projects = () => {
               <div className="h-full transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:rotate-1">
                 <div className="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
                   <div className="relative overflow-hidden h-48">
-                    <img
-                      src={project.banner}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                    <motion.div
+                      className="cursor-zoom-in"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setExpandedImage(project.banner);
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <img
+                        src={project.banner}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
-                      <h3 className="text-white text-xl font-bold">{project.title}</h3>
+                      <h3 className="text-white text-xl font-bold text-center w-full">{project.title}</h3>
                     </div>
                   </div>
-                  <div className="p-4 flex-grow dark:text-gray-200">
+                  <div className="p-4 flex-grow dark:text-gray-200 text-center">
                     <div className="flex justify-center mb-2">
-                      <img src={project.logo} alt={`${project.title} logo`} className="h-12" />
+                      <img src={project.logo} alt={`${project.title} logo`} className="h-12 mx-auto" />
                     </div>
-                    <p className="text-gray-500 dark:text-gray-400 text-center">Click to view details</p>
+                    <p className="text-gray-500 dark:text-gray-400">Click to view details</p>
                   </div>
                 </div>
               </div>
@@ -491,6 +631,42 @@ const Projects = () => {
           </div>
         </div>
       )}
+
+      {/* Overlay plein écran avec animation */}
+      <AnimatePresence>
+        {expandedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] bg-black bg-opacity-95 flex items-center justify-center p-0"
+            onClick={() => setExpandedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className="relative w-full h-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={expandedImage}
+                alt="Expanded view"
+                className="absolute inset-0 w-full h-full object-contain p-4"
+              />
+
+              <motion.button
+                className="absolute top-6 right-6 text-white text-4xl bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
+                onClick={() => setExpandedImage(null)}
+                whileHover={{ scale: 1.1 }}
+                aria-label="Close image"
+              >
+                &times;
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
